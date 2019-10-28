@@ -41,7 +41,6 @@ target_link_libraries(aruco_detect ${catkin_LIBRARIES} ${OpenCV_LIBS})
 #############
 ## Install ##
 #############
-
 ## Mark executables and/or libraries for installation
 install(TARGETS aruco_detect
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -54,20 +53,4 @@ catkin_install_python(PROGRAMS scripts/create_markers.py
 )
 install(DIRECTORY launch/
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-) 
-
-###########
-## Tests ##
-###########
-
-if(CATKIN_ENABLE_TESTING)
-        find_package(rostest REQUIRED)
-
-        # Tests need c++11
-        add_definitions(-std=c++11)
-        
-        add_rostest_gtest(aruco_images_test 
-          test/aruco_images.test 
-          test/aruco_images_test.cpp)
-        target_link_libraries(aruco_images_test ${catkin_LIBRARIES} ${OpenCV_LIBS})
-endif()
+)
